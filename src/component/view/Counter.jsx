@@ -1,16 +1,37 @@
 'use strict';
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import { Button } from 'antd';
 
 class Counter extends Component {
+
+    static defaultProps = {
+        autoPlay: false
+    }
+
+    static PropTypes = {
+        counter: React.PropTypes.number.isRequired,
+        ActionIncrement: React.PropTypes.func.isRequired,
+        ActionDecrement: React.PropTypes.func.isRequired,
+        ActionIncrementIfOdd: React.PropTypes.func.isRequired,
+        ActionIncrementAsync: React.PropTypes.func.isRequired,
+    }
+
     constructor(props) {
         super(props);
+        this.state = {
+            disabled: false
+        }
+    }
 
-    }
     handleClick(operate) {
-        this.props[`Action${operate}`]();
+        this.setState({
+            disabled: operate === 'IncrementAsync'
+        }, () => {
+            this.props[`Action${operate}`]();
+        })
     }
+
     render() {
         const {counter} =this.props;
 
@@ -41,6 +62,7 @@ class Counter extends Component {
                     </Button>
                     <Button
                         type="danger"
+                        disabled={this.state.disabled}
                         onClick={this.handleClick.bind(this, 'IncrementAsync')}
                     >
                         Increment async

@@ -83,7 +83,7 @@ if (__ENV__.__DEV__) {
             manifest: require('../dist/vendor.manifest.json')
         }),
         new HtmlWebpackPlugin({
-            title: 'spa-react',
+            title: 'spa-react-redux-template',
             template: path.resolve('./', 'src/entry/index.html'),
             favicon: path.resolve('./', 'src/asset/img/favicon.ico')
         }),

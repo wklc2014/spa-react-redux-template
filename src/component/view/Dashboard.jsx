@@ -9,7 +9,10 @@ class Dashboard extends Component {
         const {counter} = this.props;
         return (
             <div className="appWraper">
-                This is home page {counter}
+                <h2 className="mb16">This is home page {counter}</h2>
+                <p>
+                    <img src={picJPG} alt="" />
+                </p>
             </div>
         )
     }

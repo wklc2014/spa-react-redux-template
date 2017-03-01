@@ -28,7 +28,7 @@ export function ActionIncrementIfOdd() {
             return
         }
         // 没有返回就执行加一
-        dispatch(increment());
+        dispatch(ActionIncrement());
     }
 }
 
@@ -39,7 +39,7 @@ export function ActionIncrementIfOdd() {
 export function ActionIncrementAsync(delay = 1000) {
     return dispatch => {
         setTimeout(() => {
-            dispatch(increment());
+            dispatch(ActionIncrement());
         }, delay)
     }
 }

@@ -45,6 +45,15 @@ class App extends Component {
             if (currentRoute === item.to) {
                 selectedKeys = i + '';
             }
+            if (this.state.collapsed) {
+                return (
+                    <Menu.Item key={i}>
+                        <NavLink isHome={!!item.isHome} to={item.to}>
+                            <Icon type={item.icon} />
+                        </NavLink>
+                    </Menu.Item>
+                )
+            }
             return (
                 <Menu.Item key={i}>
                     <Icon type={item.icon} />
