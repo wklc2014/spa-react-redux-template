@@ -20,7 +20,10 @@ module.exports = {
             'keymirror',
             'mockjs',
             'antd',
-            'pretender'
+            'pretender',
+            'redux-devtools',
+            'redux-devtools-log-monitor',
+            'redux-devtools-dock-monitor'
         ],
     },
     output: {

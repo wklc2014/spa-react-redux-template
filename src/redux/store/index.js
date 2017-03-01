@@ -3,9 +3,20 @@ import { createStore, compose } from 'redux';
 import middleware from '../middleware';
 import reducer from '../reducer';
 
+import DevTools from '../devTool';
+
+let enhancer = middleware;
+
+if (__DEV__) {
+    enhancer = compose(
+        middleware,
+        DevTools.instrument(),
+    );
+}
+
 const store = createStore(
     reducer,
-    middleware
+    enhancer
 );
 
 export default store;

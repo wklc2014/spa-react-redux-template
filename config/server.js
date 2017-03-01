@@ -8,13 +8,14 @@ var webpackConfig = require('./webpack.config.js');
 
 // modify some webpack config options
 // 无法自动更新 css
-// webpackConfig.entry.index.unshift(
-//     "webpack-dev-server/client?http://localhost:8080/",
-//     "webpack/hot/dev-server"
-// );
+webpackConfig.entry.index.unshift(
+    "webpack-dev-server/client?http://localhost:8080/",
+    "webpack/hot/dev-server"
+);
 
 var myConfig = Object.create(webpackConfig);
 var server = new WebpackDevServer(webpack(webpackConfig), {
+    publicPath: webpackConfig.output.publicPath,
     contentBase: 'dist/',
     hot: true,
     port: 8080,

@@ -1,13 +1,11 @@
 'use strict';
-import React from 'react';
-import ReactDOM, {render} from 'react-dom';
+import React, { Component } from 'react';
+import ReactDOM, { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router';
 
 import store from '../redux/store';
-
-import {Router, hashHistory, browserHistory} from 'react-router';
-import {syncHistoryWithStore} from 'react-router-redux';
-const history = syncHistoryWithStore(hashHistory, store);
+import history from '../redux/store/history.js';
 
 import '../asset/css/index.scss';
 
@@ -16,8 +14,20 @@ const oApp = document.getElementById('app');
 
 import '../mock';
 
-render((
-    <Provider store={store}>
-        <Router history={history} routes={route(store)} />
-    </Provider>
-), oApp);
+import DevTools from '../redux/devTool';
+
+class Root extends Component {
+    render() {
+        const { store, isDev } = this.props;
+        return (
+            <Provider store={store}>
+                <div className="full-screen">
+                    <Router history={history} routes={route(store)} />
+                    {isDev ? <DevTools /> : null}
+                </div>
+            </Provider>
+        );
+    }
+}
+
+render(<Root isDev={__DEV__} store={store} />, oApp);

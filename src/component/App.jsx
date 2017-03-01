@@ -25,7 +25,7 @@ class App extends Component {
     }
     render() {
         const {counter, routing} = this.props;
-        const currentRoute = routing.locationBeforeTransitions.pathname;
+        const currentRoute = lodash.get(routing, 'locationBeforeTransitions.pathname', '');
 
         const siderProps = {
             collapsible: true,
@@ -79,7 +79,7 @@ class App extends Component {
                         {this.props.children}
                     </Content>
                     <Footer className="footerWraper">
-                        Footer
+                        Footer 1
                     </Footer>
                 </Layout>
             </Layout>

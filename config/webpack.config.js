@@ -1,7 +1,6 @@
 'use strict';
 var webpack = require('webpack');
 var path = require('path');
-var node_modules_dir = path.join('./', 'node_modules');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
@@ -22,8 +21,8 @@ var config = {
     module: {
         loaders: [{
             test: /\.js|.jsx?$/,
-            exclude: node_modules_dir,
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            exclude: /node_modules/
         }, {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style-loader!css-loader')
@@ -108,7 +107,7 @@ if (__ENV__.__DEV__) {
             }
         }),
         new HtmlWebpackPlugin({
-            title: 'spa-react',
+            title: 'spa-react-redux-template',
             compile: true,
             template: path.resolve('./', 'src/entry/index.html'),
             favicon: path.resolve('./', 'src/asset/img/favicon.ico')
