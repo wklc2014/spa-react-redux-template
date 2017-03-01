@@ -1,10 +1,5 @@
 'use strict';
-import actionType from '../actionType';
-const {
-    COUNTER_INCREMENT,
-    COUNTER_DECREMENT,
-    COUNTER_ADD
-} = actionType;
+import ActionType from '../actionType';
 
 import {StateCounter} from '../initialState';
 
@@ -13,19 +8,14 @@ import {StateCounter} from '../initialState';
 // 返回值是新的 state
 export default function ReducerCounter(state = StateCounter, action) {
     switch (action.type) {
-        case COUNTER_INCREMENT:
+        case ActionType.COUNTER_INCREMENT:
             return Object.assign({}, state, {
                 data: state.data + state.add
             });
 
-        case COUNTER_DECREMENT:
+        case ActionType.COUNTER_DECREMENT:
             return Object.assign({}, state, {
                 data: state.data - state.add
-            });
-
-        case COUNTER_ADD:
-            return Object.assign({}, state, {
-                add: action.payload
             });
 
         default:

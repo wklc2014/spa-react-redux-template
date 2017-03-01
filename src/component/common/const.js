@@ -8,5 +8,10 @@ export const NAV_DATA = {
         to: '/counter',
         text: '计数器',
         icon: 'user'
+    },
+    user: {
+        to: '/user',
+        text: '登陆',
+        icon: 'upload'
     }
 }

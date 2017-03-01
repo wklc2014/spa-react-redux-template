@@ -6,7 +6,7 @@ import API from '../service/API.js';
 import MockLogin from './api/MockLogin.js';
 
 var server = new Pretender(function () {
-    this.get(API.LOGIN, MockLogin, 100);
+    this.get(API.LOGIN, MockLogin, 1000);
     this.get('*.hot-update.json', this.passthrough);
 });
 

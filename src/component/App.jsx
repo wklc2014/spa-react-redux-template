@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import lodash from 'lodash';
 
-import Logo from './common/Logo.jsx';
+import Title from './common/Title.jsx';
 import NavLink from './common/NavLink.jsx';
 
 import {NAV_DATA} from './common/const.js';
@@ -37,7 +37,7 @@ class App extends Component {
             data: counter
         }
 
-        let selectedKeys = '0';
+        let selectedKeys = '';
 
         const menuEle = Object.keys(NAV_DATA).map((nav, i) => {
             const item = NAV_DATA[nav];
@@ -69,7 +69,7 @@ class App extends Component {
         return (
             <Layout className="layoutWraper">
                 <Sider {...siderProps}>
-                    <Logo {...logoProps} />
+                    <Title {...logoProps} />
                     <Menu theme="dark" mode="inline" selectedKeys={[selectedKeys]}>
                         {menuEle}
                     </Menu>

@@ -5,6 +5,7 @@ import {Router, Route, IndexRoute, Redirect} from 'react-router';
 import App from '../component/AppContainer.js';
 import Dashboard from '../component/view/DashboardContainer.jsx';
 import Counter from '../component/view/CounterContainer.jsx';
+import User from '../component/view/UserContainer.jsx';
 
 function route(history, store) {
     const validate = (nextState, replaceState, callback) => {
@@ -20,6 +21,7 @@ function route(history, store) {
             <Route path='/' component={App}>
                 <IndexRoute component={Dashboard} />
                 <Route path='/counter' component={Counter} />
+                <Route path='/user' component={User} />
             </Route>
         </Router>
     )
