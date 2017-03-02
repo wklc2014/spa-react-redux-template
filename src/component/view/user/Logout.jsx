@@ -40,7 +40,7 @@ class Logout extends Component {
 
         return (
             <div>
-                <h2 className="mb16">{ this.props.userName }</h2>
+                <p className="mb16">{ this.props.userName }</p>
                 <Button
                     type="primary"
                     onClick={ this.handleClick }
@@ -48,7 +48,9 @@ class Logout extends Component {
                     退出
                 </Button>
                 <Modal { ...modalProps }>
-                    <p>确定要退出登陆吗？</p>
+                    <section className="mocalContentWraper">
+                        <p>确定要退出登陆吗？</p>
+                    </section>
                 </Modal>
             </div>
         )

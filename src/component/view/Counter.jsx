@@ -33,6 +33,7 @@ class Counter extends Component {
     }
 
     render() {
+
         const {counter} =this.props;
 
         return (
@@ -68,6 +69,7 @@ class Counter extends Component {
                         Increment async
                     </Button>
                 </div>
+                <div className="counterImg"></div>
             </div>
         )
     }
