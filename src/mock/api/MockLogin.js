@@ -1,8 +1,12 @@
 'use strict';
 
 function login(request) {
-    const data = request.queryParams;
-    return [200, {}, data];
+    const { method, params, queryParams } = request;
+    let data = {
+        'GET': queryParams,
+        'POST': params
+    };
+    return [200, {}, data[method]];
 };
 
 export default login;

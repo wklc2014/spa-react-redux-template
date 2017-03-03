@@ -6,5 +6,5 @@ export const StateCounter = {
 }
 
 export const StateUser = {
-    userName: '秦皇汉武'
+    userName: ''
 }

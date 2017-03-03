@@ -25,18 +25,15 @@ class UserLogin extends Component {
             getFieldDecorator,
             getFieldsError,
             getFieldError,
-            isFieldTouched,
-            getFieldValue
+            isFieldTouched
         } = this.props.form;
 
-        const userNameError = isFieldTouched('userName') && getFieldError('userName');
-        const passwordError = isFieldTouched('passWord') && getFieldError('passWord');
+        const userNameError = isFieldTouched('userName') || getFieldError('userName');
+        const passwordError = isFieldTouched('passWord') || getFieldError('passWord');
 
-        const userName = getFieldValue('userName');
-        const passWord = getFieldValue('passWord');
+        const hasError = this.hasErrors(getFieldsError());
 
-        // const canSubmit = !userName || !passWord || this.hasErrors(getFieldsError())
-        const canSubmit = this.hasErrors(getFieldsError())
+        console.log(userNameError, passwordError)
 
         return (
             <Form className="userWraper">
@@ -49,7 +46,6 @@ class UserLogin extends Component {
                             required: true,
                             message: '请输入用户名！'
                         }],
-                        initialValue: 'admin'
                     })(
                         <Input
                             addonBefore={<Icon type="user" />}
@@ -66,7 +62,6 @@ class UserLogin extends Component {
                             required: true,
                             message: '请输入密码！'
                         }],
-                        initialValue: '123456'
                     })(
                         <Input
                             addonBefore={<Icon type="apple-o" />}
@@ -78,7 +73,7 @@ class UserLogin extends Component {
                     <Button
                         type="primary"
                         onClick={this.handleClick}
-                        disabled={canSubmit}
+                        disabled={hasError}
                     >
                         登陆
                     </Button>

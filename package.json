@@ -8,7 +8,7 @@
     "clean": "./node_modules/.bin/rimraf dist/*",
     "prod": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack -p --config config/webpack.config.js --display-chunks false --hide-modules true",
     "dev": "./node_modules/.bin/cross-env NODE_ENV=development node ./config/server.js",
-    "dll": "./node_modules/.bin/webpack --config config/webpack.dll.config.js --display-chunks false --hide-modules true",
+    "dll": "./node_modules/.bin/webpack --config config/webpack.dll.config.js",
     "build": "npm run clean && npm run prod",
     "start": "npm run clean && npm run dll && npm run dev"
   },
@@ -61,7 +61,6 @@
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
     "mockjs": "^1.0.1-beta3",
-    "qwest": "^4.4.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
