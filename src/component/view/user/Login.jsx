@@ -28,12 +28,10 @@ class UserLogin extends Component {
             isFieldTouched
         } = this.props.form;
 
-        const userNameError = isFieldTouched('userName') || getFieldError('userName');
-        const passwordError = isFieldTouched('passWord') || getFieldError('passWord');
+        const userNameError = isFieldTouched('userName') && getFieldError('userName');
+        const passwordError = isFieldTouched('passWord') && getFieldError('passWord');
 
         const hasError = this.hasErrors(getFieldsError());
-
-        console.log(userNameError, passwordError)
 
         return (
             <Form className="userWraper">
