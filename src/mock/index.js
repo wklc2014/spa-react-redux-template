@@ -14,7 +14,7 @@ server.prepareBody = function(body) {
     return body ? JSON.stringify(body) : '{"error": "not found"}';
 }
 
-// if (__PROD__) {
-//     server.shutdown();
-// }
+if (__PROD__) {
+    server.shutdown();
+}
 

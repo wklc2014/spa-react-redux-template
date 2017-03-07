@@ -11,23 +11,20 @@ import '../asset/css/index.scss';
 
 import route from '../route';
 const oApp = document.getElementById('app');
+1
 
-import '../mock';
+// import '../mock';
+if (__DEV__) {
+    // require('../mock');
+}
 
 import DevTools from '../redux/devTool';
 
-class Root extends Component {
-    render() {
-        const { store, isDev } = this.props;
-        return (
-            <Provider store={store}>
-                <div className="full-screen">
-                    <Router history={history} routes={route(store)} />
-                    {isDev ? <DevTools /> : null}
-                </div>
-            </Provider>
-        );
-    }
-}
-
-render(<Root isDev={__DEV__} store={store} />, oApp);
+render((
+    <Provider store={store}>
+        <div className="full-screen">
+            <Router history={history} routes={route(store)} />
+            {__DEV__ ? <DevTools /> : null}
+        </div>
+    </Provider>
+), oApp);

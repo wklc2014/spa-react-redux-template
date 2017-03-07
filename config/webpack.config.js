@@ -91,7 +91,7 @@ if (__ENV__.__DEV__) {
             append: false
         }),
         // new OpenBrowserPlugin({
-        //     url: 'http://localhost:8080'
+        //     url: 'http://localhost:9000'
         // }),
         new webpack.HotModuleReplacementPlugin()
     );
