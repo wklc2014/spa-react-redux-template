@@ -1,4 +1,3 @@
-'use strict';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Dashboard from './Dashboard.jsx';

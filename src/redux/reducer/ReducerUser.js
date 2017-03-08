@@ -1,7 +1,5 @@
-'use strict';
 import ActionType from '../actionType';
-
-import {StateUser} from '../initialState';
+import { StateUser } from '../initialState';
 
 // reducer 其实也是个方法而已
 // 参数是 state 和 action

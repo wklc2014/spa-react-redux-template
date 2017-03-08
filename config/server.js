@@ -6,10 +6,15 @@ var WebpackDevServer = require("webpack-dev-server");
 var webpack = require("webpack");
 var webpackConfig = require('./webpack.config.js');
 
+var __SERVER__ = {
+    host: '0.0.0.0',
+    port: 9000
+}
+
 // modify some webpack config options
 // 无法自动更新 css
 webpackConfig.entry.index.unshift(
-    "webpack-dev-server/client?http://localhost:9000/",
+    `webpack-dev-server/client?http://${__SERVER__.host}:${__SERVER__.port}/`,
     "webpack/hot/dev-server"
 );
 
@@ -18,19 +23,14 @@ var server = new WebpackDevServer(webpack(webpackConfig), {
     publicPath: webpackConfig.output.publicPath,
     contentBase: 'dist/',
     hot: true,
-    port: 9000,
+    host: __SERVER__.host,
+    port: __SERVER__.port,
     stats: {
         chunks: false,
         children: false,
         colors: true
     },
-    historyApiFallback: true,
-    proxy: {
-        "/api": {
-            target: "http://localhost:9001",
-            pathRewrite: {"^/api" : ""}
-        }
-    }
+    historyApiFallback: true
 })
 
-server.listen(9000);
+server.listen(__SERVER__.port);

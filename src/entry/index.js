@@ -11,11 +11,9 @@ import '../asset/css/index.scss';
 
 import route from '../route';
 const oApp = document.getElementById('app');
-1
 
-// import '../mock';
 if (__DEV__) {
-    // require('../mock');
+    require('../mock');
 }
 
 import DevTools from '../redux/devTool';

@@ -22,7 +22,8 @@ module.exports = {
             'pretender',
             'redux-devtools',
             'redux-devtools-log-monitor',
-            'redux-devtools-dock-monitor'
+            'redux-devtools-dock-monitor',
+            'moment'
         ],
     },
     output: {

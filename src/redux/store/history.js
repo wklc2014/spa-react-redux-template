@@ -1,4 +1,3 @@
-'use strict';
 import { hashHistory, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import store from './index.js';

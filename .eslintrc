@@ -1,0 +1,19 @@
+{
+    "extends": "eslint-config-airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+        "linebreak-style": 0,
+        "indent": [1, 4],
+        "semi": ["error", "always", { "omitLastInOneLineBlock": true}],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-curly-spacing": ["error", "always"]
+    },
+    "ecmaFeatures": {},
+   "globals": {
+        "$": true,
+        "moment": true
+    },
+    "settings": {
+        "import/extensions": ["error", "always"]
+    }
+}

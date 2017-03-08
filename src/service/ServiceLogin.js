@@ -1,4 +1,3 @@
-'use strict';
 import axios from 'axios';
 import API from './API.js';
 
@@ -8,9 +7,9 @@ export default function ServiceLogin(data, cb) {
         method: 'get',
         dataType: 'json',
         params: data
-    }).then(function(response) {
+    }).then(response => {
         cb('ok', response.data);
-    }).catch(function(e, xhr, response) {
+    }).catch((e, xhr, response) => {
         console.log('ServiceLogin is error', e);
     });
 }
