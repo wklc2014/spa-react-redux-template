@@ -1,13 +1,11 @@
-'use strict';
 import ActionType from '../actionType';
-
 import ServiceLogin from '../../service/ServiceLogin.js';
 
 function login(userName) {
     return {
         type: ActionType.USER_LOGIN,
         payload: userName || ''
-    }
+    };
 }
 
 export function ActionLogin(data) {
@@ -16,11 +14,10 @@ export function ActionLogin(data) {
             if (stat === 'ok') {
                 dispatch(login(resp.userName));
             }
-        })
-    }
+        });
+    };
 }
 
 export function ActionLogout() {
-    return login()
+    return login();
 }
-

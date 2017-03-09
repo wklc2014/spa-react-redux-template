@@ -1,22 +1,21 @@
-'use strict';
-import React, { Component } from 'react';
-import ReactDOM, { render } from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 
 import store from '../redux/store';
-import history from '../redux/store/history.js';
+import history from '../redux/history';
 
 import '../asset/css/index.scss';
 
 import route from '../route';
+import DevTools from '../redux/store/DevTool.jsx';
+
 const oApp = document.getElementById('app');
 
 if (__DEV__) {
     require('../mock');
 }
-
-import DevTools from '../redux/devTool';
 
 render((
     <Provider store={store}>

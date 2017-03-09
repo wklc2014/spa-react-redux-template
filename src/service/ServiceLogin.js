@@ -10,6 +10,6 @@ export default function ServiceLogin(data, cb) {
     }).then(response => {
         cb('ok', response.data);
     }).catch((e, xhr, response) => {
-        console.log('ServiceLogin is error', e);
+        console.log('ServiceLogin is error', e, xhr, response);
     });
 }

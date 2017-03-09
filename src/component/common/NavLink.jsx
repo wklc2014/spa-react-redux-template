@@ -1,6 +1,5 @@
-"use strict";
 import React, {Component} from 'react';
-import {Link, IndexLink} from 'react-router';
+import { Link, IndexLink } from 'react-router';
 
 class NavLink extends Component {
     render() {

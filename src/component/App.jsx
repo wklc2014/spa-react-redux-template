@@ -1,12 +1,11 @@
-'use strict';
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 import lodash from 'lodash';
 
 import Title from './common/Title.jsx';
 import NavLink from './common/NavLink.jsx';
 
-import {NAV_DATA} from './common/const.js';
+import { NAV_DATA } from './common/const.js';
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;

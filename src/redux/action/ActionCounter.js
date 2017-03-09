@@ -1,18 +1,17 @@
-'use strict';
 import ActionType from '../actionType';
 
 // 导出加一的方法
 export function ActionIncrement() {
     return {
         type: ActionType.COUNTER_INCREMENT
-    }
+    };
 }
 
 // 导出减一的方法
 export function ActionDecrement() {
     return {
         type: ActionType.COUNTER_DECREMENT
-    }
+    };
 }
 
 // 导出奇数加一的方法，
@@ -25,11 +24,11 @@ export function ActionIncrementIfOdd() {
 
         // 偶数则返回
         if (counter.data % 2 === 0) {
-            return
+            return;
         }
         // 没有返回就执行加一
         dispatch(ActionIncrement());
-    }
+    };
 }
 
 // 导出一个方法
@@ -40,6 +39,6 @@ export function ActionIncrementAsync(delay = 1000) {
     return dispatch => {
         setTimeout(() => {
             dispatch(ActionIncrement());
-        }, delay)
-    }
+        }, delay);
+    };
 }

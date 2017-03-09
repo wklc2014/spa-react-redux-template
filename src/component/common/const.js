@@ -14,4 +14,4 @@ export const NAV_DATA = {
         text: '登陆',
         icon: 'upload'
     }
-}
+};

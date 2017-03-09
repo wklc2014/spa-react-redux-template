@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import lodash from 'lodash';
 
 import picJPG from '../../asset/img/pic.jpg';

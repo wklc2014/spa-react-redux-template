@@ -16,11 +16,11 @@ function route(history, store) {
         callback();
     };
     return (
-        <Router history={ history } onEnter={ validate }>
-            <Route path="/" component={ App }>
-                <IndexRoute component={ Dashboard } />
-                <Route path="/counter" component={ Counter } />
-                <Route path="/user" component={ User } />
+        <Router history={history} onEnter={validate}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Dashboard} />
+                <Route path="/counter" component={Counter} />
+                <Route path="/user" component={User} />
             </Route>
         </Router>
     );
