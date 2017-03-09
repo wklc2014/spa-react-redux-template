@@ -1,20 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
-class NavLink extends Component {
-    render() {
-        const {isHome} = this.props;
-        const otherProps = {
-            activeClassName: 'navActive',
-            className: 'navClass',
-            ...this.props
-        };
-        delete otherProps.isHome;
-        if (isHome) {
-            return <IndexLink {...otherProps} />;
-        }
-        return <Link {...otherProps} />;
+const NavLink = props => {
+    const {isHome} = props;
+    const otherProps = {
+        activeClassName: 'navActive',
+        className: 'navClass',
+        ...props
+    };
+    delete otherProps.isHome;
+    if (isHome) {
+        return <IndexLink {...otherProps} />;
     }
+    return <Link {...otherProps} />;
 }
 
 export default NavLink;

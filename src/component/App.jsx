@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import lodash from 'lodash';
-
+import { Layout, Menu, Icon } from 'antd';
 import Title from './common/Title.jsx';
 import NavLink from './common/NavLink.jsx';
-
 import { NAV_DATA } from './common/const.js';
 
-import { Layout, Menu, Icon } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
+const { Footer, Sider, Content } = Layout;
 
 class App extends Component {
+
+    static PropTypes = {
+        counter: React.PropTypes.number.isRequired,
+        routing: React.PropTypes.object.isRequired
+    }
+
     constructor(props) {
         super(props);
         this.state = {
             collapsed: false
-        }
+        };
     }
     handleCollapse() {
         this.setState({
             collapsed: !this.state.collapsed
-        })
+        });
     }
     render() {
         const {counter, routing} = this.props;
@@ -29,12 +32,12 @@ class App extends Component {
         const siderProps = {
             collapsible: true,
             collapsed: this.state.collapsed,
-            onCollapse: e => {this.handleCollapse()}
-        }
+            onCollapse: () => {this.handleCollapse()}
+        };
 
         const logoProps = {
             data: counter
-        }
+        };
 
         let selectedKeys = '';
 
@@ -51,7 +54,7 @@ class App extends Component {
                             <Icon type={item.icon} />
                         </NavLink>
                     </Menu.Item>
-                )
+                );
             }
             return (
                 <Menu.Item key={i}>
@@ -62,8 +65,8 @@ class App extends Component {
                         </NavLink>
                     </span>
                 </Menu.Item>
-            )
-        })
+            );
+        });
 
         return (
             <Layout className="layoutWraper">
@@ -82,7 +85,7 @@ class App extends Component {
                     </Footer>
                 </Layout>
             </Layout>
-        )
+        );
     }
 }
 

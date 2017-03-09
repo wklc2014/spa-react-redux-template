@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component, PropTypes } from 'react';
 
 import { Button } from 'antd';
@@ -13,14 +14,14 @@ class Counter extends Component {
         ActionIncrement: React.PropTypes.func.isRequired,
         ActionDecrement: React.PropTypes.func.isRequired,
         ActionIncrementIfOdd: React.PropTypes.func.isRequired,
-        ActionIncrementAsync: React.PropTypes.func.isRequired,
+        ActionIncrementAsync: React.PropTypes.func.isRequired
     }
 
     constructor(props) {
         super(props);
         this.state = {
             disabled: false
-        }
+        };
     }
 
     handleClick(operate) {
@@ -28,7 +29,7 @@ class Counter extends Component {
             disabled: operate === 'IncrementAsync'
         }, () => {
             this.props[`Action${operate}`]();
-        })
+        });
     }
 
     render() {
@@ -68,9 +69,9 @@ class Counter extends Component {
                         Increment async
                     </Button>
                 </div>
-                <div className="counterImg"></div>
+                <div className="counterImg" />
             </div>
-        )
+        );
     }
 }
 

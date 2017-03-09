@@ -9,10 +9,10 @@ import User from '../component/view/UserContainer.jsx';
 function route(history, store) {
     const validate = (nextState, replaceState, callback) => {
         // 需要做权限控制的时候开启
-        const isLoggedIn = !!store.getState().auth.authenticated;
-        if (!isLoggedIn) {
-            replaceState(null, '/login');
-        }
+        // const isLoggedIn = !!store.getState().auth.authenticated;
+        // if (!isLoggedIn) {
+            // replaceState(null, '/login');
+        // }
         callback();
     };
     return (

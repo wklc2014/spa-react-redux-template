@@ -10,7 +10,7 @@ import {
 function mapStateToProps(state) {
     return {
         userName: state.user.userName
-    }
+    };
 }
 
 function mapDispatchToProps(dispatch) {

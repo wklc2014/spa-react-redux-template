@@ -1,22 +1,26 @@
 'use strict';
-import React, { Component } from 'react';
-
+import React, { Component, PropTypes } from 'react';
 import { Form, Button, Icon, Input } from 'antd';
+
 const FormItem = Form.Item;
 
 class UserLogin extends Component {
 
-    hasErrors(fieldsError) {
-      return Object.keys(fieldsError).some(field => fieldsError[field]);
+    static PropTypes = {
+        ActionLogin: React.PropTypes.func.isRequired
     }
 
-    handleClick = (e) => {
-        const { getFieldValue, validateFields } = this.props.form;
+    hasErrors(fieldsError) {
+        return Object.keys(fieldsError).some(field => fieldsError[field]);
+    }
+
+    handleClick = () => {
+        const { validateFields } = this.props.form;
         validateFields((err, values) => {
             if (!err) {
                 this.props.ActionLogin(values);
             }
-        })
+        });
     }
 
     render() {
@@ -43,7 +47,7 @@ class UserLogin extends Component {
                         rules: [{
                             required: true,
                             message: '请输入用户名！'
-                        }],
+                        }]
                     })(
                         <Input
                             addonBefore={<Icon type="user" />}
@@ -59,7 +63,7 @@ class UserLogin extends Component {
                         rules: [{
                             required: true,
                             message: '请输入密码！'
-                        }],
+                        }]
                     })(
                         <Input
                             addonBefore={<Icon type="apple-o" />}
@@ -77,7 +81,7 @@ class UserLogin extends Component {
                     </Button>
                 </FormItem>
             </Form>
-        )
+        );
     }
 }
 

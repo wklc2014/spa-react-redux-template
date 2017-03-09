@@ -1,29 +1,34 @@
-'use strict';
-
 import React, { Component } from 'react';
-
 import { Button, Modal } from 'antd';
 
 class Logout extends Component {
 
+    static PropTypes = {
+        userName: React.PropTypes.string.isRequired,
+        ActionLogout: React.PropTypes.func.isRequired
+    }
+
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleOk = this.handleOk.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
         this.state = {
             visible: false
         }
     }
 
-    handleClick = (e) => {
+    handleClick() {
         this.setState({
             visible: true
         })
     }
 
-    handleOk = (e) => {
+    handleOk() {
         this.props.ActionLogout();
     }
 
-    handleCancel = (e) => {
+    handleCancel() {
         this.setState({
             visible: false
         })
@@ -40,20 +45,20 @@ class Logout extends Component {
 
         return (
             <div>
-                <p className="mb16">{ this.props.userName }</p>
+                <p className="mb16">{this.props.userName}</p>
                 <Button
                     type="primary"
-                    onClick={ this.handleClick }
+                    onClick={this.handleClick}
                 >
                     退出
                 </Button>
-                <Modal { ...modalProps }>
+                <Modal {...modalProps}>
                     <section className="mocalContentWraper">
                         <p>确定要退出登陆吗？</p>
                     </section>
                 </Modal>
             </div>
-        )
+        );
     }
 }
 

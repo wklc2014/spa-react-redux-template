@@ -7,7 +7,7 @@ const Title = props => {
                 {props.data}
             </span>
         </div>
-    )
+    );
 };
 
 export default Title;

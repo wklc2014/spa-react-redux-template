@@ -5,7 +5,7 @@ import MockLogin from './api/MockLogin.js';
 
 const server = new Pretender(function () {
     this.get(API.LOGIN, MockLogin, 1000);
-    this.get('*', this.passthrough);
+    this.get('*.hot-update.json', this.passthrough);
 });
 
 server.prepareBody = function (body) {
