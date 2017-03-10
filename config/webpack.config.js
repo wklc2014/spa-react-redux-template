@@ -89,11 +89,11 @@ if (__ENV__.__DEV__) {
         new HtmlWebpackIncludeAssetsPlugin({
             assets: ['vendor.dll.js'],
             append: false
-        }),
+        })
         // new OpenBrowserPlugin({
         //     url: 'http://localhost:9000'
         // }),
-        new webpack.HotModuleReplacementPlugin()
+        // new webpack.HotModuleReplacementPlugin()
     );
 } else if (__ENV__.__PROD__) {
     config.plugins.push(

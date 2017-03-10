@@ -1,22 +1,22 @@
 /**
  * 启动开发环境服务器
  */
-'use strict';
 var WebpackDevServer = require("webpack-dev-server");
 var webpack = require("webpack");
 var webpackConfig = require('./webpack.config.js');
+var path = require('path');
 
 var __SERVER__ = {
-    host: '0.0.0.0',
+    host: 'localhost',
     port: 9000
 }
 
 // modify some webpack config options
 // 无法自动更新 css
-webpackConfig.entry.index.unshift(
-    `webpack-dev-server/client?http://${__SERVER__.host}:${__SERVER__.port}/`,
-    "webpack/hot/dev-server"
-);
+// webpackConfig.entry.index.unshift(
+//     `webpack-dev-server/client?http://${__SERVER__.host}:${__SERVER__.port}/`,
+//     "webpack/hot/dev-server"
+// );
 
 var myConfig = Object.create(webpackConfig);
 var server = new WebpackDevServer(webpack(webpackConfig), {

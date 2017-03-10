@@ -6,7 +6,8 @@ import {
     ActionIncrement,
     ActionDecrement,
     ActionIncrementIfOdd,
-    ActionIncrementAsync
+    ActionIncrementAsync,
+    ActionDisabled
 } from '../../redux/action/ActionCounter.js';
 
 function mapStateToProps(state) {
@@ -21,7 +22,8 @@ function mapDispatchToProps(dispatch) {
         ActionIncrement,
         ActionDecrement,
         ActionIncrementIfOdd,
-        ActionIncrementAsync
+        ActionIncrementAsync,
+        ActionDisabled
     }, dispatch);
 }
 

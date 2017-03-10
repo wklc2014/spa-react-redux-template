@@ -1,5 +1,4 @@
 import ActionType from '../actionType';
-
 import { StateCounter } from '../initialState';
 
 // reducer 其实也是个方法而已

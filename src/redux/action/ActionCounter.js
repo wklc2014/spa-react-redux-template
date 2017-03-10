@@ -42,3 +42,10 @@ export function ActionIncrementAsync(delay = 1000) {
         }, delay);
     };
 }
+
+export function ActionDisabled(status) {
+    return {
+        type: ActionType.COUNTER_DISABLED,
+        payload: status
+    }
+}

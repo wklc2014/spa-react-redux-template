@@ -1,5 +1,5 @@
 const API = {
-    LOGIN: '/login.json'
+    LOGIN: 'login.json'
 };
 
 export default API;
