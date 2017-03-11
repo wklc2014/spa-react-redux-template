@@ -14,7 +14,8 @@ class Counter extends Component {
         ActionIncrement: React.PropTypes.func.isRequired,
         ActionDecrement: React.PropTypes.func.isRequired,
         ActionIncrementIfOdd: React.PropTypes.func.isRequired,
-        ActionIncrementAsync: React.PropTypes.func.isRequired
+        ActionIncrementAsync: React.PropTypes.func.isRequired,
+        ActionDisabled: React.PropTypes.func.isRequired
     }
 
     constructor(props) {
@@ -25,16 +26,16 @@ class Counter extends Component {
     }
 
     handleClick(operate) {
-        this.setState({
-            disabled: operate === 'IncrementAsync'
-        }, () => {
-            this.props[`Action${operate}`]();
-        });
+        const {disabled} = this.props;
+        if (operate === 'IncrementAsync') {
+            this.props.ActionDisabled(!disabled);
+        }
+        this.props[`Action${operate}`]();
     }
 
     render() {
 
-        const {counter} =this.props;
+        const {counter, disabled} =this.props;
 
         return (
             <div className="appWraper">
@@ -45,25 +46,28 @@ class Counter extends Component {
                     <Button
                         className="mr16"
                         type="primary"
+                        disabled={disabled}
                         onClick={this.handleClick.bind(this, 'Increment')}
                     >
                         +
                     </Button>
                     <Button
                         className="mr16"
+                        disabled={disabled}
                         onClick={this.handleClick.bind(this, 'Decrement')}
                     >
                         -
                     </Button>
                     <Button
                         className="mr16"
+                        disabled={disabled}
                         onClick={this.handleClick.bind(this, 'IncrementIfOdd')}
                     >
                         Increment if odd
                     </Button>
                     <Button
                         type="danger"
-                        disabled={this.state.disabled}
+                        disabled={disabled}
                         onClick={this.handleClick.bind(this, 'IncrementAsync')}
                     >
                         Increment async

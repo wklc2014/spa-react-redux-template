@@ -12,7 +12,8 @@ import {
 
 function mapStateToProps(state) {
     return {
-        counter: state.counter.data
+        counter: state.counter.data,
+        disabled: state.counter.disabled
     };
 }
 
